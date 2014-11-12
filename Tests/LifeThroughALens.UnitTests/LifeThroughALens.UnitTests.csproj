@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LifeThroughALens.UnitTests</RootNamespace>
     <AssemblyName>LifeThroughALens.UnitTests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -67,11 +68,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\LIfeThroughALens.Domain\LifeThroughALens.Domain.csproj">
-      <Project>{314C14B3-DC26-4E32-BB59-210EB4949C81}</Project>
+      <Project>{314c14b3-dc26-4e32-bb59-210eb4949c81}</Project>
       <Name>LifeThroughALens.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\LifeThroughALens\LifeThroughALens.csproj">
-      <Project>{54FC633D-FBA9-4FED-991B-FC44586E9A7A}</Project>
+      <Project>{54fc633d-fba9-4fed-991b-fc44586e9a7a}</Project>
       <Name>LifeThroughALens</Name>
     </ProjectReference>
   </ItemGroup>

@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LifeThroughALens.IntegrationTests</RootNamespace>
     <AssemblyName>LifeThroughALens.IntegrationTests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,15 +31,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Cardinal.Glass.Extensions.AgnosticIoC">
+      <HintPath>..\..\packages\Glass.Agnostic.IoC.0.20\lib\net451\Cardinal.Glass.Extensions.AgnosticIoC.dll</HintPath>
+    </Reference>
     <Reference Include="Cardinal.Glass.Extensions.Mapping, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Cardinal.Glass.Extensions.Mapping.0.20\lib\net45\Cardinal.Glass.Extensions.Mapping.dll</HintPath>
     </Reference>
-    <Reference Include="Cardinal.IoC">
-      <HintPath>..\..\packages\Agnostic.IoC.Core.0.31\lib\net45\Cardinal.IoC.dll</HintPath>
+    <Reference Include="Cardinal.IoC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Agnostic.IoC.Core.0.32\lib\net45\Cardinal.IoC.dll</HintPath>
     </Reference>
-    <Reference Include="Cardinal.IoC.StructureMap">
-      <HintPath>..\..\packages\Agnostic.IoC.StructureMap.0.31\lib\net45\Cardinal.IoC.StructureMap.dll</HintPath>
+    <Reference Include="Cardinal.IoC.Autofac">
+      <HintPath>..\..\packages\Agnostic.IoC.Autofac.0.31\lib\net45\Cardinal.IoC.Autofac.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core">
       <HintPath>..\..\packages\Castle.Core.3.2.0\lib\net45\Castle.Core.dll</HintPath>
@@ -52,16 +60,17 @@
     <Reference Include="nunit.framework">
       <HintPath>..\..\Lib\Nunit\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Sitecore.Analytics">
+      <HintPath>..\..\Lib\Sitecore\Sitecore.Analytics.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.Kernel">
       <HintPath>..\..\Lib\Sitecore\Sitecore.Kernel.dll</HintPath>
     </Reference>
-    <Reference Include="StructureMap">
-      <HintPath>..\..\packages\structuremap.3.1.4.143\lib\net40\StructureMap.dll</HintPath>
-    </Reference>
-    <Reference Include="StructureMap.Net4">
-      <HintPath>..\..\packages\structuremap.3.1.4.143\lib\net40\StructureMap.Net4.dll</HintPath>
+    <Reference Include="sitecore.nexus">
+      <HintPath>..\..\Lib\Sitecore\sitecore.nexus.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -74,8 +83,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="App_Config\Include\Glass.Mapper.Sc.CodeFirst.config.exclude" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
