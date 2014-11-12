@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeThroughALens", "LifeThroughALens\LifeThroughALens.csproj", "{54FC633D-FBA9-4FED-991B-FC44586E9A7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeThroughALens.Maps", "LifeThroughALens.Maps\LifeThroughALens.Maps.csproj", "{8BF5007C-361D-4568-8593-9D2C9260A35F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeThroughALens.Domain", "LIfeThroughALens.Domain\LifeThroughALens.Domain.csproj", "{314C14B3-DC26-4E32-BB59-210EB4949C81}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{43072CE7-4D01-45A6-9A6B-0F6E017929B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeThroughALens.IntegrationTests", "Tests\LifeThroughALens.IntegrationTests\LifeThroughALens.IntegrationTests.csproj", "{55F69EC8-E6B9-4BE5-8408-9F8CCD6FA061}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeThroughALens.UnitTests", "Tests\LifeThroughALens.UnitTests\LifeThroughALens.UnitTests.csproj", "{BF6E757C-7FB1-45CE-BA9A-672DC59B4425}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54FC633D-FBA9-4FED-991B-FC44586E9A7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54FC633D-FBA9-4FED-991B-FC44586E9A7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54FC633D-FBA9-4FED-991B-FC44586E9A7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54FC633D-FBA9-4FED-991B-FC44586E9A7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BF5007C-361D-4568-8593-9D2C9260A35F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BF5007C-361D-4568-8593-9D2C9260A35F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BF5007C-361D-4568-8593-9D2C9260A35F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BF5007C-361D-4568-8593-9D2C9260A35F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{314C14B3-DC26-4E32-BB59-210EB4949C81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{314C14B3-DC26-4E32-BB59-210EB4949C81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{314C14B3-DC26-4E32-BB59-210EB4949C81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{314C14B3-DC26-4E32-BB59-210EB4949C81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55F69EC8-E6B9-4BE5-8408-9F8CCD6FA061}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55F69EC8-E6B9-4BE5-8408-9F8CCD6FA061}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55F69EC8-E6B9-4BE5-8408-9F8CCD6FA061}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55F69EC8-E6B9-4BE5-8408-9F8CCD6FA061}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF6E757C-7FB1-45CE-BA9A-672DC59B4425}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF6E757C-7FB1-45CE-BA9A-672DC59B4425}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF6E757C-7FB1-45CE-BA9A-672DC59B4425}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF6E757C-7FB1-45CE-BA9A-672DC59B4425}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{55F69EC8-E6B9-4BE5-8408-9F8CCD6FA061} = {43072CE7-4D01-45A6-9A6B-0F6E017929B3}
+		{BF6E757C-7FB1-45CE-BA9A-672DC59B4425} = {43072CE7-4D01-45A6-9A6B-0F6E017929B3}
+	EndGlobalSection
+EndGlobal
