@@ -11,3 +11,9 @@ Lib/Sitecore/*.xml
 Tests/LifeThroughALens.IntegrationTests/bin/
 LifeThroughALens/bin/
 Lib/Sitecore/*.lic
+LIfeThroughALens.Domain/LifeThroughALens.Domain.v2.ncrunchproject
+Tests/LifeThroughALens.IntegrationTests/LifeThroughALens.IntegrationTests.v2.ncrunchproject
+LifeThroughALens.Maps/LifeThroughALens.Maps.v2.ncrunchproject
+LifeThroughALens.v2.ncrunchsolution
+LifeThroughALens/LifeThroughALens.v2.ncrunchproject
+Tests/LifeThroughALens.UnitTests/LifeThroughALens.UnitTests.v2.ncrunchproject
