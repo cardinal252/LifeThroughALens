@@ -65,6 +65,7 @@ namespace LifeThroughALens.IntegrationTests
 
         private static IDependencyResolver RegisterMaps(IContainerManager containerManager)
         {
+            // this would usually be done using the containers own scanning functionality
             var config = new Config();
             containerManager.Adapter.Register<IGlassMap, SitecoreItemMap>();
             containerManager.Adapter.Register<ISitecoreGlassMap<ISitecoreItem>, SitecoreItemMap>();
