@@ -87,8 +87,9 @@ namespace LifeThroughALens.IntegrationTests
             IDependencyResolver dependencyResolver = new DependencyResolver(containerManager.Adapter);
             containerManager.Adapter.Register(dependencyResolver);
             containerManager.Adapter.RegisterGroup(new SitecoreInstaller(config));
-            containerManager.Adapter.Register<ISitecoreTypeProvider, SitecoreTypeProvider>();
             containerManager.Adapter.Register<AbstractDataMapper, SitecoreDelegateMapper>();
+            containerManager.Adapter.Register<ISitecoreTypeProvider, SitecoreTypeProvider>();
+ 
             return dependencyResolver;
         }
 
