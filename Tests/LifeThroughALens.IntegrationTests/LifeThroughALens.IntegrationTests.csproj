@@ -82,6 +82,7 @@
     <Compile Include="OldStyleConfigTests.cs" />
     <Compile Include="ItemRetrievalTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GlassTestBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

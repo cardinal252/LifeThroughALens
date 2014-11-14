@@ -1,51 +1,46 @@
-﻿using System;
-using Autofac;
-using Cardinal.Glass.Extensions.AgnosticIoC;
-using Cardinal.Glass.Extensions.Mapping.Sitecore;
-using Cardinal.IoC;
-using Cardinal.Ioc.Autofac;
+﻿using Cardinal.Glass.Extensions.Mapping.Sitecore;
 using Glass.Mapper;
-using Glass.Mapper.Sc;
 using Glass.Mapper.Sc.Configuration;
 using Glass.Mapper.Sc.Configuration.Fluent;
 using LifeThroughALens.Domain;
 using NUnit.Framework;
-using Sitecore.Configuration;
-using Sitecore.Links;
 
 namespace LifeThroughALens.IntegrationTests
 {
     [TestFixture]
-    public class OldStyleConfigTests
+    public class OldStyleConfigTests : GlassTestBase
     {
-        private ISitecoreService sitecoreService;
-
         [TestFixtureSetUp]
         public void Setup()
         {
-            // use the native container scanning functionality to register the maps
-            IContainerManager containerManager = GetContainerManager();
-
-            Config config = new Config();
-            IDependencyResolver dependencyResolver = new DependencyResolver(containerManager.Adapter);
-            containerManager.Adapter.Register(dependencyResolver);
-            containerManager.Adapter.RegisterGroup(new SitecoreInstaller(config));
-            containerManager.Adapter.Register<AbstractDataMapper, SitecoreDelegateMapper>();
+            ContainerManager.Adapter.Register<AbstractDataMapper, SitecoreDelegateMapper>();
 
             SitecoreFluentConfigurationLoader configloader = new SitecoreFluentConfigurationLoader();
+            
             SetupGlass(configloader);
 
-            Context context = Context.Create(dependencyResolver);
-            context.Load(configloader);
-
-            sitecoreService = new SitecoreService(Factory.GetDatabase("master"), context);
+            SetupGlassService(configloader);
         }
 
-        private void SetupGlass(SitecoreFluentConfigurationLoader configloader)
+        [Test]
+        public void CanGetSiteRootSuccessfully()
+        {
+            // Act
+            ISiteRoot siteRoot = GlassService.GetItem<ISiteRoot>(SitecoreIds.HomePageId.ToGuid());
+
+            // Assert
+            Assert.IsNotNull(siteRoot);
+            Assert.AreEqual("Home", siteRoot.Name);
+            Assert.AreEqual("Welcome to Officecore", siteRoot.Title);
+            Assert.AreEqual("/~/media/Images/Logos/poweredbysitecore.ashx", siteRoot.PoweredByImage.Src);
+        }
+
+        protected void SetupGlass(SitecoreFluentConfigurationLoader configloader)
         {
             SitecoreType<ISitecoreItem> sitecoreItemType = new SitecoreType<ISitecoreItem>();
             sitecoreItemType.Id(y => y.Id);
             sitecoreItemType.Info(y => y.Name).InfoType(SitecoreInfoType.Name);
+
             // NOT DEFAULT GLASS
             sitecoreItemType.Delegate(y => y.Url).GetValue(GetItemUrl);
             configloader.Add(sitecoreItemType);
@@ -82,39 +77,5 @@ namespace LifeThroughALens.IntegrationTests
             siteRootType.Import(sitecoreItemType);
             configloader.Add(siteRootType);
         }
-
-        [Test]
-        public void CanGetHomepageSuccessfully()
-        {
-            // Act
-            ISiteRoot siteRoot = sitecoreService.GetItem<ISiteRoot>(SitecoreIds.HomePageId.ToGuid());
-
-            // Assert
-            Assert.IsNotNull(siteRoot);
-            Assert.AreEqual("Home", siteRoot.Name);
-            Assert.AreEqual("Welcome to Officecore", siteRoot.Title);
-            Assert.AreEqual("/~/media/Images/Logos/poweredbysitecore.ashx", siteRoot.PoweredByImage.Src);
-
-        }
-
-        private static IContainerManager GetContainerManager()
-        {
-            ContainerBuilder builder = new ContainerBuilder();
-
-            IContainer container = builder.Build();
-
-            return new ContainerManager(new AutofacContainerAdapter(container));
-        }
-
-        private string GetItemUrl(SitecoreDataMappingContext arg)
-        {
-            if (arg.Item == null)
-            {
-                return String.Empty;
-            }
-
-            return LinkManager.GetItemUrl(arg.Item);
-        }
-
     }
 }

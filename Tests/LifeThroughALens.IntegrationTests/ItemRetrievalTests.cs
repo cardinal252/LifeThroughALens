@@ -1,50 +1,35 @@
-﻿using System;
-using Autofac;
-using Cardinal.Glass.Extensions.AgnosticIoC;
-using Cardinal.Glass.Extensions.Mapping;
+﻿using Cardinal.Glass.Extensions.Mapping;
 using Cardinal.Glass.Extensions.Mapping.Sitecore;
 using Cardinal.IoC;
-using Cardinal.Ioc.Autofac;
 using Glass.Mapper;
-using Glass.Mapper.Sc;
 using Glass.Mapper.Sc.Configuration.Fluent;
 using LifeThroughALens.Domain;
 using LifeThroughALens.Maps;
 using NUnit.Framework;
-using Sitecore.Configuration;
 
 namespace LifeThroughALens.IntegrationTests
 {
     [TestFixture]
-    public class ItemRetrievalTests
+    public class ItemRetrievalTests : GlassTestBase
     {
-        private ISitecoreService sitecoreService;
 
         [TestFixtureSetUp]
         public void Setup()
-        {
-            // use the native container scanning functionality to register the maps
-            IContainerManager containerManager = GetContainerManager();
+        {           
+            RegisterMapsWithContainer(ContainerManager);
 
-            var dependencyResolver = RegisterMaps(containerManager);
+            ConfigurationMap configurationMap = new ConfigurationMap(DependencyResolver);
 
-            SitecoreTypeProvider provider = new SitecoreTypeProvider(dependencyResolver);
-            Console.WriteLine(provider.GetSitecoreType<IBreadCrumb>().GetType());
-
-            ConfigurationMap configurationMap = new ConfigurationMap(dependencyResolver);
             SitecoreFluentConfigurationLoader configloader = configurationMap.GetConfigurationLoader<SitecoreFluentConfigurationLoader>();
 
-            Context context = Context.Create(dependencyResolver);
-            context.Load(configloader);
-
-            sitecoreService = new SitecoreService(Factory.GetDatabase("master"), context);
+            SetupGlassService(configloader);
         }
 
         [Test]
         public void CanGetHomepageSuccessfully()
         {
             // Act
-            ISiteRoot siteRoot = sitecoreService.GetItem<ISiteRoot>(SitecoreIds.HomePageId.ToGuid());
+            ISiteRoot siteRoot = GlassService.GetItem<ISiteRoot>(SitecoreIds.HomePageId.ToGuid());
 
             // Assert
             Assert.IsNotNull(siteRoot);
@@ -54,19 +39,10 @@ namespace LifeThroughALens.IntegrationTests
 
         }
 
-        private static IContainerManager GetContainerManager()
-        {
-            ContainerBuilder builder = new ContainerBuilder();
-
-            IContainer container = builder.Build();
-
-            return new ContainerManager(new AutofacContainerAdapter(container));
-        }
-
-        private static IDependencyResolver RegisterMaps(IContainerManager containerManager)
+        protected void RegisterMapsWithContainer(IContainerManager containerManager)
         {
             // this would usually be done using the containers own scanning functionality
-            var config = new Config();
+
             containerManager.Adapter.Register<IGlassMap, SitecoreItemMap>();
             containerManager.Adapter.Register<ISitecoreGlassMap<ISitecoreItem>, SitecoreItemMap>();
 
@@ -85,13 +61,10 @@ namespace LifeThroughALens.IntegrationTests
             containerManager.Adapter.Register<IGlassMap, ConcreteThemeMap>();
             containerManager.Adapter.Register<ISitecoreGlassMap<Theme>, ConcreteThemeMap>();
 
-            IDependencyResolver dependencyResolver = new DependencyResolver(containerManager.Adapter);
-            containerManager.Adapter.Register(dependencyResolver);
-            containerManager.Adapter.RegisterGroup(new SitecoreInstaller(config));
+            containerManager.Adapter.Register(DependencyResolver);
+
             containerManager.Adapter.Register<AbstractDataMapper, SitecoreDelegateMapper>();
             containerManager.Adapter.Register<ISitecoreTypeProvider, SitecoreTypeProvider>();
- 
-            return dependencyResolver;
         }
 
     }
