@@ -15,6 +15,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeThroughALens.Integratio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeThroughALens.UnitTests", "Tests\LifeThroughALens.UnitTests\LifeThroughALens.UnitTests.csproj", "{BF6E757C-7FB1-45CE-BA9A-672DC59B4425}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IoC", "IoC", "{6CA480DF-5662-43BD-9A88-CDE2D832B6B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeThroughALens.IntegrationTests.Common", "Tests\LifeThroughALens.IntegrationTests.Common\LifeThroughALens.IntegrationTests.Common.csproj", "{5A7D628C-52E1-4DCB-85B2-0C9873ADDA2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeThroughALens.IntegrationTests.Unity", "Tests\LifeThroughALens.IntegrationTests.Unity\LifeThroughALens.IntegrationTests.Unity.csproj", "{3A5FA4F0-628A-4743-B8C6-582160D294B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +47,14 @@ Global
 		{BF6E757C-7FB1-45CE-BA9A-672DC59B4425}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF6E757C-7FB1-45CE-BA9A-672DC59B4425}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF6E757C-7FB1-45CE-BA9A-672DC59B4425}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A7D628C-52E1-4DCB-85B2-0C9873ADDA2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A7D628C-52E1-4DCB-85B2-0C9873ADDA2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A7D628C-52E1-4DCB-85B2-0C9873ADDA2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A7D628C-52E1-4DCB-85B2-0C9873ADDA2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A5FA4F0-628A-4743-B8C6-582160D294B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A5FA4F0-628A-4743-B8C6-582160D294B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A5FA4F0-628A-4743-B8C6-582160D294B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A5FA4F0-628A-4743-B8C6-582160D294B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,5 +62,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{55F69EC8-E6B9-4BE5-8408-9F8CCD6FA061} = {43072CE7-4D01-45A6-9A6B-0F6E017929B3}
 		{BF6E757C-7FB1-45CE-BA9A-672DC59B4425} = {43072CE7-4D01-45A6-9A6B-0F6E017929B3}
+		{6CA480DF-5662-43BD-9A88-CDE2D832B6B7} = {43072CE7-4D01-45A6-9A6B-0F6E017929B3}
+		{5A7D628C-52E1-4DCB-85B2-0C9873ADDA2E} = {43072CE7-4D01-45A6-9A6B-0F6E017929B3}
+		{3A5FA4F0-628A-4743-B8C6-582160D294B1} = {6CA480DF-5662-43BD-9A88-CDE2D832B6B7}
 	EndGlobalSection
 EndGlobal

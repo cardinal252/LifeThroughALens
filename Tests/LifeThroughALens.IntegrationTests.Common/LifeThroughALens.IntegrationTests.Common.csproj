@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{55F69EC8-E6B9-4BE5-8408-9F8CCD6FA061}</ProjectGuid>
+    <ProjectGuid>{5A7D628C-52E1-4DCB-85B2-0C9873ADDA2E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LifeThroughALens.IntegrationTests</RootNamespace>
-    <AssemblyName>LifeThroughALens.IntegrationTests</AssemblyName>
+    <RootNamespace>LifeThroughALens.IntegrationTests.Common</RootNamespace>
+    <AssemblyName>LifeThroughALens.IntegrationTests.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -31,22 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac">
-      <HintPath>..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
-    </Reference>
     <Reference Include="Cardinal.Glass.Extensions.AgnosticIoC">
       <HintPath>..\..\packages\Glass.Agnostic.IoC.0.20\lib\net451\Cardinal.Glass.Extensions.AgnosticIoC.dll</HintPath>
     </Reference>
-    <Reference Include="Cardinal.Glass.Extensions.Mapping, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Cardinal.Glass.Extensions.Mapping">
       <HintPath>..\..\packages\Cardinal.Glass.Extensions.Mapping.0.20\lib\net45\Cardinal.Glass.Extensions.Mapping.dll</HintPath>
     </Reference>
-    <Reference Include="Cardinal.IoC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Cardinal.IoC">
       <HintPath>..\..\packages\Agnostic.IoC.Core.0.32\lib\net45\Cardinal.IoC.dll</HintPath>
-    </Reference>
-    <Reference Include="Cardinal.IoC.Autofac">
-      <HintPath>..\..\packages\Agnostic.IoC.Autofac.0.31\lib\net45\Cardinal.IoC.Autofac.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core">
       <HintPath>..\..\packages\Castle.Core.3.2.0\lib\net45\Castle.Core.dll</HintPath>
@@ -60,14 +52,8 @@
     <Reference Include="nunit.framework">
       <HintPath>..\..\Lib\Nunit\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Analytics">
-      <HintPath>..\..\Lib\Sitecore\Sitecore.Analytics.dll</HintPath>
-    </Reference>
     <Reference Include="Sitecore.Kernel">
       <HintPath>..\..\Lib\Sitecore\Sitecore.Kernel.dll</HintPath>
-    </Reference>
-    <Reference Include="sitecore.nexus">
-      <HintPath>..\..\Lib\Sitecore\sitecore.nexus.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -79,15 +65,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OldStyleConfigTests.cs" />
-    <Compile Include="ItemRetrievalTests.cs" />
+    <Compile Include="GlassTestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
+    <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\LIfeThroughALens.Domain\LifeThroughALens.Domain.csproj">
@@ -101,10 +85,6 @@
     <ProjectReference Include="..\..\LifeThroughALens\LifeThroughALens.csproj">
       <Project>{54fc633d-fba9-4fed-991b-fc44586e9a7a}</Project>
       <Name>LifeThroughALens</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LifeThroughALens.IntegrationTests.Common\LifeThroughALens.IntegrationTests.Common.csproj">
-      <Project>{5a7d628c-52e1-4dcb-85b2-0c9873adda2e}</Project>
-      <Name>LifeThroughALens.IntegrationTests.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

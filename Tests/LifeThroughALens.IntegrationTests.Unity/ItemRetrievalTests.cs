@@ -1,17 +1,13 @@
 ﻿using System;
-using Autofac;
 using Cardinal.Glass.Extensions.Mapping;
-using Cardinal.Glass.Extensions.Mapping.Sitecore;
 using Cardinal.IoC;
-using Cardinal.Ioc.Autofac;
-using Glass.Mapper;
+using Cardinal.IoC.Unity;
 using Glass.Mapper.Sc.Configuration.Fluent;
-using LifeThroughALens.Domain;
 using LifeThroughALens.IntegrationTests.Common;
-using LifeThroughALens.Maps;
+using Microsoft.Practices.Unity;
 using NUnit.Framework;
 
-namespace LifeThroughALens.IntegrationTests
+namespace LifeThroughALens.IntegrationTests.Unity
 {
     [TestFixture]
     public class ItemRetrievalTests : GlassTestBase
@@ -37,10 +33,8 @@ namespace LifeThroughALens.IntegrationTests
 
         protected override IContainerAdapter GetContainerAdapter()
         {
-            ContainerBuilder builder = new ContainerBuilder();
-
-            IContainer container = builder.Build();
-            return new AutofacContainerAdapter(Guid.NewGuid().ToString(), container);
+            IUnityContainer container = new UnityContainer();
+            return new UnityContainerAdapter(Guid.NewGuid().ToString(), container);
         }
     }
 }

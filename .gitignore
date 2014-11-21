@@ -19,3 +19,7 @@ LifeThroughALens/LifeThroughALens.v2.ncrunchproject
 Tests/LifeThroughALens.UnitTests/LifeThroughALens.UnitTests.v2.ncrunchproject
 LifeThroughALens.sln.DotSettings.user
 LifeThroughALens.v12.suo
+Tests/LifeThroughALens.IntegrationTests.Unity/bin/
+Tests/LifeThroughALens.IntegrationTests.Common/obj/
+Tests/LifeThroughALens.IntegrationTests.Unity/obj/
+Tests/LifeThroughALens.IntegrationTests.Common/bin/
