@@ -8,9 +8,15 @@ using NUnit.Framework;
 
 namespace LifeThroughALens.UnitTests
 {
+    /// <summary>
+    /// Job hub page unit tests
+    /// </summary>
     [TestFixture]
     public class JobServiceTests
     {
+        /// <summary>
+        /// Test to ensure that the job hub page gets all the current active jobs
+        /// </summary>
         [Test]
         public void CanGetActiveJobsSuccessfully()
         {
@@ -38,6 +44,9 @@ namespace LifeThroughALens.UnitTests
             Assert.AreEqual(job2, result.FirstOrDefault());
         }
 
+        /// <summary>
+        /// Test to ensure that the job hub page behaves when there are no active jobs
+        /// </summary>
         [Test]
         public void CanGetActiveJobsNoActiveJobs()
         {
@@ -58,6 +67,9 @@ namespace LifeThroughALens.UnitTests
             Assert.IsNull(result);
         }
 
+        /// <summary>
+        /// Test to ensure that the job hub page behaves gracefully an exception is thrown from the service class
+        /// </summary>
         [Test]
         public void CanGetActiveJobsServiceException()
         {
